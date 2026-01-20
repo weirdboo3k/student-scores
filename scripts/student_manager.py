@@ -24,3 +24,9 @@ def load_data(self):
             student.total = student.math + student.english + student.science
             student.average = round(student.total / 3, 2)
             self.students.append(student)
+def assign_ranks(self):
+    sorted_students = sorted(self.students, key=lambda s: s.total, reverse=True)
+    rank = 1
+    for student in sorted_students:
+        student.rank = rank
+        rank += 1
