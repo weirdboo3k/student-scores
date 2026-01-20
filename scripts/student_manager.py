@@ -16,3 +16,11 @@ class StudentManager:
 
 if __name__ == "__main__":
     manager = StudentManager("../data/students.csv", "../data/students_processed.csv")
+def load_data(self):
+    with open(self.input_file, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            student = Student(row['ID'], row['Name'], row['Math'], row['English'], row['Science'])
+            student.total = student.math + student.english + student.science
+            student.average = round(student.total / 3, 2)
+            self.students.append(student)
